@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nearby places on map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key={YOUR_API_KEY}&libraries=places"></script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Places</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="Places.html">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="MapPlot.html">Plot Nearby Places On Map</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+      <div class="form-group">
+        <label for="location">Enter Location:</label><br>
+        <input class="form-control"  id="searchTextField" type="text" placeholder="Enter a location">
+        <br>
+  
+    </div>
+
+    <div class="form-group">
+        <label for="radius" >Enter radius:</label>
+        <br>
+        <input class="form-control" id="radius" type="number" placeholder="Enter radius">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="type"> Select Place Type: </label>
+        <br>
+        <select class="form-control" name="" id="type">
+            <option id='accounting'> accounting </option>
+            <option id='airport'> airport </option>
+            <option id='amusement_park'> amusement_park </option>
+            <option id='aquarium'>aquarium</option>
+            <option id='art_gallery'>art_gallery</option>
+            <option id='atm'>atm</option>
+            <option id='bakery'>bakery</option>
+            <option id='bank'>bank</option>
+            <option id='bar'>bar</option>
+            <option id='beauty_salon'>beauty_salon</option>
+            <option id='bicycle_store'>bicycle_store</option>
+            <option id='book_store'>book_store</option>
+            <option id='bowling_alley'>bowling_alley</option>
+            <option id='bus_station'>bus_station</option>
+            <option id='cafe'>cafe</option>
+            <option id='campground'>campground</option>
+            <option id='car_dealer'>car_dealer</option>
+            <option id='car_rental'>car_rental</option>
+            <option id='car_repair'>car_repair</option>
+            <option id='car_wash'>car_wash</option>
+            <option id='casino'>casino</option>
+            <option id='cemetery'>cemetery</option>
+            <option id='church'>church</option>
+            <option id='city_hall'>city_hall</option>
+            <option id='clothing_store'>clothing_store</option>
+            <option id='convenience_store'>convenience_store</option>
+            <option id='courthouse'>courthouse</option>
+            <option id='dentist'>dentist</option>
+            <option id='department_store'>department_store</option>
+            <option id='doctor'>doctor</option>
+            <option id='drugstore'>drugstore</option>
+            <option id='electrician'>electrician</option>
+            <option id='electronics_store'>electronics_store</option>
+            <option id='embassy'>embassy</option>
+            <option id='fire_station'>fire_station</option>
+            <option id='florist'>florist</option>
+            <option id='funeral_home'>funeral_home</option>
+            <option id='furniture_store'>furniture_store</option>
+            <option id='gas_station'>gas_station</option>
+            <option id='gym'>gym</option>
+            <option id='hair_care'>hair_care</option>
+            <option id='hardware_store'>hardware_store</option>
+            <option id='hindu_temple'>hindu_temple</option>
+            <option id='home_goods_store'>home_goods_store</option>
+            <option id='hospital'>hospital</option>
+            <option id='insurance_agency'>insurance_agency</option>
+            <option id='jewelry_store'>jewelry_store</option>
+            <option id='lawyer'>lawyer</option>
+            <option id='library'>library</option>
+            <option id='light_rail_station'>light_rail_station</option>
+            <option id='liquor_store'>liquor_store</option>
+            <option id='local_government_office'>local_government_office</option>
+            <option id='locksmith'>locksmith</option>
+            <option id='lodging'>lodging</option>
+            <option id='meal_delivery'>meal_delivery</option>
+            <option id='meal_takeaway'>meal_takeaway</option>
+            <option id='mosque'>mosque</option>
+            <option id='movie_rental'>movie_rental</option>
+            <option id='movie_theater'>movie_theater</option>
+            <option id='moving_company'>moving_company</option>
+            <option id='museum'>museum</option>
+            <option id='night_club'>night_club</option>
+            <option id='painter'>painter</option>
+            <option id='park'>park</option>
+            <option id='parking'>parking</option>
+            <option id='pet_store'>pet_store</option>
+            <option id='pharmacy'>pharmacy</option>
+            <option id='physiotherapist'>physiotherapist</option>
+            <option id='plumber'>plumber</option>
+            <option id='police'>police</option>
+            <option id='post_office'>post_office</option>
+            <option id='primary_school'>primary_school</option>
+            <option id='real_estate_agency'>real_estate_agency</option>
+            <option id='restaurant'>restaurant</option>
+            <option id='roofing_contractor'>roofing_contractor</option>
+            <option id='rv_park'>rv_park</option>
+            <option id='school' selected>school</option>
+            <option id='secondary_school'>secondary_school</option>
+            <option id='shoe_store'>shoe_store</option>
+            <option id='shopping_mall'>shopping_mall</option>
+            <option id='spa'>spa</option>
+            <option id='stadium'>stadium</option>
+            <option id='storage'>storage</option>
+            <option id='store'>store</option>
+            <option id='subway_station'>subway_station</option>
+            <option id='supermarket'>supermarket</option>
+            <option id='synagogue'>synagogue</option>
+            <option id='taxi_stand'>taxi_stand</option>
+            <option id='tourist_attraction'>tourist_attraction</option>
+            <option id='train_station'>train_station</option>
+            <option id='transit_station'>transit_station</option>
+            <option id='travel_agency'>travel_agency</option>
+            <option id='university'>university</option>
+            <option id='veterinary_care'>veterinary_care</option>
+        </select>
+    </div>
+    <br><br>
+
+
+    <div id="map" style="height: 500px;"></div>
+</body>
+  
+
+<script>
+    var map;
+    var service;
+    var infowindow;
+
+    function initialize() {
+        var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        })
+
+        var input = document.getElementById('searchTextField');
+
+        let autocomplete = new google.maps.places.Autocomplete(input)
+
+        autocomplete.bindTo('bounds', map)
+
+        let marker = new google.maps.Marker({
+            map: map
+        })
+
+        google.maps.event.addListener(autocomplete, 'place_changed', () => {
+            let place = autocomplete.getPlace()
+            console.log(place)
+            console.log(place.photos[0].getUrl())
+
+            if (place.geometry.viewport) {
+                map.fitBounds(place.geometry.viewport)
+            } else {
+                map.setCenter(place.geometry.location)
+                map.setZoom(17)
+            }
+            marker.setPosition(place.geometry.location)
+            marker.setVisible(true)
+
+            let request = {
+                location: place.geometry.location,
+                radius: [document.getElementById('radius').value],
+                type: [document.getElementById('type').value]
+            }
+
+            
+
+            service = new google.maps.places.PlacesService(map)
+            service.nearbySearch(request, callback)
+
+        })
+
+    }
+
+    function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                var place = results[i];
+                createMarker(results[i]);
+            }
+        }
+    }
+
+
+    function createMarker(place) {
+        var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            alert(place.name);
+            window.open(place.photos[0].getUrl(), "_blank");
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize)
+</script>
+
+
+
+</html>
